@@ -27,7 +27,11 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NgxMaskModule } from 'ngx-mask';
+import { BankInformationComponent } from './Component/BusinessComponent/bank-information/bank-information.component';
+import { AnnualInformationComponent } from './Component/BusinessComponent/annual-information/annual-information.component';
+import { MonthlyInformationComponent } from './Component/BusinessComponent/monthly-information/monthly-information.component';
 
 const maskConfig: Partial<any> = {
   validation: true,
@@ -38,7 +42,10 @@ const maskConfig: Partial<any> = {
     AppComponent,
     MainComponent,
     PrmDynamicFormComponent,
-    PrmDynamicInputComponent
+    PrmDynamicInputComponent,
+    BankInformationComponent,
+    AnnualInformationComponent,
+    MonthlyInformationComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +70,7 @@ const maskConfig: Partial<any> = {
     MatNativeDateModule,
     MatToolbarModule,
     MatTabsModule,
+    MatProgressBarModule,
     NgxMaskModule.forRoot(maskConfig)
   ],
   providers: [],

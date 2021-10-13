@@ -1,0 +1,20 @@
+// .container-shadow {
+//     -webkit-box-shadow: inset 0px 0px 11px 0px #000000;
+//     box-shadow: inset 0px 0px 11px 0px #000000;
+// }
+.cs-container {
+    border: 2px solid #e8e8e8;
+}
+
+.rounded-container {
+    border-radius: 5px;
+}
+
+.link-inform-icon {
+    color: #d2d2d2;
+    transform: translate(80vw, -1vh);
+}
+
+.content-inform-handler {
+    transform: translateY(-1.5vh);
+}

@@ -18,26 +18,35 @@
 <mat-tab-group mat-stretch-tabs headerPosition="below">
     <mat-tab>
         <ng-template mat-tab-label>
-            <mat-icon class="example-tab-icon">paid</mat-icon> &nbsp; Banco
+            <div class="cs-tab-label">
+                <mat-icon class="tab-icon">today</mat-icon>
+                Mensal
+            </div>
         </ng-template>
         <div class="tab-content">
-            <h2> Hello! </h2>
+            <app-monthly-information></app-monthly-information>
         </div>
     </mat-tab>
     <mat-tab>
         <ng-template mat-tab-label>
-            <mat-icon class="example-tab-icon">fact_check</mat-icon> &nbsp; Anual
+            <div class="cs-tab-label">
+                <mat-icon class="tab-icon">fact_check</mat-icon>
+                Anual
+            </div>
         </ng-template>
         <div class="tab-content">
-            <h2> Hello! </h2>
+            <app-annual-information></app-annual-information>
         </div>
     </mat-tab>
     <mat-tab>
         <ng-template mat-tab-label>
-            <mat-icon class="example-tab-icon">today</mat-icon> &nbsp; Mensal
+            <div class="cs-tab-label">
+                <mat-icon class="tab-icon">paid</mat-icon>
+                Banco
+            </div>
         </ng-template>
         <div class="tab-content">
-            <h2> Hello! </h2>
+            <app-bank-information></app-bank-information>
         </div>
     </mat-tab>
 </mat-tab-group>

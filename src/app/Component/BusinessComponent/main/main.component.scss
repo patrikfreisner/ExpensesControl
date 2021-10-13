@@ -7,6 +7,16 @@ span.mat-tab-title {
     width: 100%;
 }
 
-.tab-content {
-    height: 100%;
+.cs-tab-label {
+    display: grid;
+}
+
+.tab-icon {
+    margin: auto;
+}
+
+:host ::ng-deep .mat-tab-header {
+    width: 100%;
+    position: fixed !important;
+    bottom: 0;
 }
