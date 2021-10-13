@@ -1,0 +1,49 @@
+<!-- NUMBER || TEXT -->
+<mat-form-field *ngIf="question.type == 'text' || question.type == 'number'" [formGroup]="form" appearance="outline" class="w-100">
+    <mat-label [attr.for]="question.key">{{question.label}}</mat-label>
+    <input matInput [formControlName]="question.key" [id]="question.key" [type]="question.type" [mask]="question.mask" [placeholder]="question.placeholder" (change)="question.onChange(this, $event)" (keyup)="question.onKeyUp(this, $event)" (keydown)="question.onKeyDown(this, $event)"
+        (click)="question.onClick(this, $event)" [attr.inputmode]="question.inputMode">
+    <mat-error *ngIf="form.get(question.key)?.hasError('required')">
+        "{{question.label}}" é <strong>obrigatório!</strong>
+    </mat-error>
+    <mat-error *ngIf="form.get(question.key)?.hasError('mask')">
+        Formato <strong>incorreto</strong>: o valor deve ser similar à "{{ form.get(question.key)?.errors?.mask.requiredMask }}".
+    </mat-error>
+</mat-form-field>
+<!-- SELECT -->
+<mat-form-field *ngIf="question.type == 'select'" [formGroup]="form" appearance="outline" class="w-100">
+    <mat-label [attr.for]="question.key"> {{question.label}} </mat-label>
+    <mat-select [formControlName]="question.key" [id]="question.key" (selectionChange)="question.onChange(this, $event)" (keyup)="question.onKeyUp(this, $event)" (keydown)="question.onKeyDown(this, $event)" (click)="question.onClick(this, $event)">
+        <mat-option *ngFor="let opt of question.options" value="{{opt.value}}"> {{ opt.label }} </mat-option>
+    </mat-select>
+    <mat-error *ngIf="form.get(question.key)?.hasError('required')">
+        "{{question.label}}" é <strong>obrigatório!</strong>
+    </mat-error>
+</mat-form-field>
+<!-- DATEPICKET -->
+<mat-form-field *ngIf="question.type == 'datepicker'" [formGroup]="form" appearance="outline" class="w-100">
+    <mat-label [attr.for]="question.key">{{question.label}}</mat-label>
+    <input matInput [matDatepicker]="picker" [formControlName]="question.key" [id]="question.key" (change)="question.onChange(this, $event)" (keyup)="question.onKeyUp(this, $event)" (keydown)="question.onKeyDown(this, $event)" (click)="question.onClick(this, $event)">
+    <mat-datepicker-toggle matSuffix [for]="picker">
+        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
+    </mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error *ngIf="form.get(question.key)?.hasError('required')">
+        "{{question.label}}" é <strong>obrigatório!</strong>
+    </mat-error>
+</mat-form-field>
+<!-- TEXTAREA -->
+<mat-form-field *ngIf="question.type == 'textarea'" [formGroup]="form" appearance="outline" class="w-100">
+    <mat-label [attr.for]="question.key"> {{question.label}} </mat-label>
+    <textarea matInput [formControlName]="question.key" [id]="question.key" [placeholder]="question.placeholder" (change)="question.onChange(this, $event)" (keyup)="question.onKeyUp(this, $event)" (keydown)="question.onKeyDown(this, $event)" (click)="question.onClick(this, $event)"></textarea>
+    <mat-error *ngIf="form.get(question.key)?.hasError('required')">
+        "{{question.label}}" é <strong>obrigatório!</strong>
+    </mat-error>
+</mat-form-field>
+<!-- NESTED-FORMGROUP -->
+<form *ngIf="question.type == 'nestedFormGroup'" [formGroup]="form" class="w-100 outline-style row">
+    <h5 id="labelText_{{ question.key }}" class="nestedFormLabel">
+        <span id="spanText_{{ question.key }}">{{ question.label }}</span>
+    </h5>
+    <app-dynamic-input *ngFor="let question of questions" class="col-md-{{question.size}}" [question]="question" [form]="form" (questionOutput)="onResultsBack($event)"></app-dynamic-input>
+</form>

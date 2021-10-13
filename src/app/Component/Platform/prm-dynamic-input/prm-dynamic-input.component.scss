@@ -1,0 +1,16 @@
+.outline-style {
+    padding: 20px;
+    border: 1px solid #c4c4c4;
+    border-radius: 6px;
+    margin: 0px;
+}
+
+.nestedFormLabel {
+    font-family: Roboto, ' Helvetica Neue ', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    position: relative;
+    transform: translateY(-1.67em); // scale(0.75)
+    padding: 0px 10px;
+    background-color: white;
+}

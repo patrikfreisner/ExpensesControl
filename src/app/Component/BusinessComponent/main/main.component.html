@@ -1,0 +1,43 @@
+<!-- <div *ngIf="baseQuestions" class="container mt-5 m-auto">
+    <app-dynamic-form [questions]="baseQuestions" (formOutput)="onSubmit($event)"></app-dynamic-form>
+</div> -->
+
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-icon-button>
+            <!-- Only to align title text -->
+              <mat-icon style="font-size: 40px;"></mat-icon>
+        </button>
+        <span class="mat-tab-title">Expenses control</span>
+        <button mat-icon-button>
+              <mat-icon style="font-size: 40px;">account_circle</mat-icon>
+        </button>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-tab-group mat-stretch-tabs headerPosition="below">
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">paid</mat-icon> &nbsp; Banco
+        </ng-template>
+        <div class="tab-content">
+            <h2> Hello! </h2>
+        </div>
+    </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">fact_check</mat-icon> &nbsp; Anual
+        </ng-template>
+        <div class="tab-content">
+            <h2> Hello! </h2>
+        </div>
+    </mat-tab>
+    <mat-tab>
+        <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon">today</mat-icon> &nbsp; Mensal
+        </ng-template>
+        <div class="tab-content">
+            <h2> Hello! </h2>
+        </div>
+    </mat-tab>
+</mat-tab-group>
