@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserLoginService } from 'src/app/Service/Platform/user-login.service';
 
 @Component({
   selector: 'app-monthly-information',
@@ -11,7 +10,6 @@ export class MonthlyInformationComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    
   }
 
 }
