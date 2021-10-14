@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MainComponent } from './Component/BusinessComponent/main/main.component';
+import { MainComponent, MainBottomSheet } from './Component/BusinessComponent/main/main.component';
 import { PrmDynamicFormComponent } from './Component/Platform/prm-dynamic-form/prm-dynamic-form.component';
 import { PrmDynamicInputComponent } from './Component/Platform/prm-dynamic-input/prm-dynamic-input.component';
 
@@ -29,9 +29,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { NgxMaskModule } from 'ngx-mask';
+
 import { BankInformationComponent } from './Component/BusinessComponent/bank-information/bank-information.component';
 import { AnnualInformationComponent } from './Component/BusinessComponent/annual-information/annual-information.component';
 import { MonthlyInformationComponent } from './Component/BusinessComponent/monthly-information/monthly-information.component';
+
+import { registerLocaleData } from '@angular/common';
+import localePt from '@angular/common/locales/pt';
+
+registerLocaleData(localePt, 'pt');
 
 const maskConfig: Partial<any> = {
   validation: true,
@@ -41,6 +47,7 @@ const maskConfig: Partial<any> = {
   declarations: [
     AppComponent,
     MainComponent,
+    MainBottomSheet,
     PrmDynamicFormComponent,
     PrmDynamicInputComponent,
     BankInformationComponent,
@@ -73,7 +80,13 @@ const maskConfig: Partial<any> = {
     MatProgressBarModule,
     NgxMaskModule.forRoot(maskConfig)
   ],
-  providers: [],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'pt' },
+    {
+      provide: DEFAULT_CURRENCY_CODE,
+      useValue: 'BRL',
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

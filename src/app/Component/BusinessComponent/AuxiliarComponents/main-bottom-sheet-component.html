@@ -1,0 +1,31 @@
+<!-- <mat-nav-list>
+    <a mat-list-item (click)="openLink($event)">
+        <span mat-line>Despesa variável</span>
+    </a>
+    <a mat-list-item (click)="openLink($event)">
+        <span mat-line>Despesa fixa</span>
+    </a>
+    <a mat-list-item (click)="openLink($event)">
+        <span mat-line>Despesa recorrente</span>
+    </a>
+</mat-nav-list> -->
+<style>
+    .mat-expansion-panel-body {
+        padding: 0px!important;
+    }
+</style>
+<mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+                Nova despesa variável
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-form-field appearance="fill">
+            <mat-label>First name</mat-label>
+            <input matInput>
+        </mat-form-field>
+
+    </mat-expansion-panel>
+</mat-accordion>
